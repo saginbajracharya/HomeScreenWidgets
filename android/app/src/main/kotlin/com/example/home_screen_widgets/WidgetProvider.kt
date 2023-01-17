@@ -15,8 +15,7 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
             val views = RemoteViews(context.packageName, R.layout.widget_layout).apply {
 
                 // Open App on Widget Click
-                val pendingIntent = HomeWidgetLaunchIntent.getActivity(context,
-                        MainActivity::class.java)
+                val pendingIntent = HomeWidgetLaunchIntent.getActivity(context,MainActivity::class.java)
                 setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
                 val counter = widgetData.getInt("_counter", 0)
@@ -30,8 +29,7 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                 setTextViewText(R.id.tv_counter, counterText)
 
                 // Pending intent to update counter on button click
-                val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(context,
-                        Uri.parse("myAppWidget://updatecounter"))
+                val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(context,Uri.parse("myAppWidget://updatecounter"))
                 setOnClickPendingIntent(R.id.bt_update, backgroundIntent)
             }
             appWidgetManager.updateAppWidget(widgetId, views)

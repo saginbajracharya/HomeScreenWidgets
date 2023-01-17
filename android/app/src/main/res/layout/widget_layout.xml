@@ -1,13 +1,16 @@
 <FrameLayout
     android:id="@+id/widget_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
-    android:layout_height="110dp">
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:padding="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1f303d">
+        android:layout_gravity="center_vertical"
+        android:background="#262626">
+
 
         <TextView
             android:id="@+id/tv_counter"
@@ -18,15 +21,15 @@
             android:padding="12dp"
             android:text="--"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/bt_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="Update Counter"
+            android:text="Increment"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
     </RelativeLayout>
 </FrameLayout>

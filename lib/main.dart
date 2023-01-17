@@ -16,7 +16,7 @@ Future<void> backgroundCallback(Uri? uri) async {
       counter++;
     });
     await HomeWidget.saveWidgetData<int>('_counter', counter);
-    await HomeWidget.updateWidget(name: 'AppWidgetProvider', iOSName: 'AppWidgetProvider');
+    await HomeWidget.updateWidget(name: 'HomeScreenWidgetProvider', iOSName: 'HomeScreenWidgetProvider');
   }
 }
 
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Home Screen Widgets',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> updateAppWidget() async {
     await HomeWidget.saveWidgetData<int>('_counter', _counter);
-    await HomeWidget.updateWidget(name: 'AppWidgetProvider', iOSName: 'AppWidgetProvider');
+    await HomeWidget.updateWidget(name: 'HomeScreenWidgetProvider', iOSName: 'HomeScreenWidgetProvider');
   }
 
   void _incrementCounter() {
@@ -76,7 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        centerTitle: true,
+        title: Text(widget.title,style: const TextStyle(color: Colors.black)),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Center(
         child: Column(
